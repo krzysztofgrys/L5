@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="script.js"></script>
+
+</head>
+<body onload="verifyAge()">
+
+<div id="calculator" style="display: none">
+    <h1>Witaj!</h1>
+    <h2 id="welcomeText">Tak wiec urodziles się w </h2>
+    <p>Twoj rok urodzenia kwalifikuje sie do naszego konkursu i ma szanse wygrać niesamowitą i niepowtarzalną
+        nagrodę,</p>
+    <p>jeszcze tylko krok dzieli cie od wygranej!</p>
+    <p>Rozwiaż zagadke i zdobądź wymarzona nagrode!</p>
+
+    <div id="puzzle">
+        <div id="puzzleRand">
+            <input type="number" name="answer" id="answer"> *
+        </div>
+        <br>
+        <button onclick="puzzleCheck()" title="check">Sprawdz</button>
+    </div>
+
+    <div id="lastStep" >
+        <h2>GRATULACJE!</h2>
+        <h2>To już ostatni etap i nagroda jest twoja!</h2>
+        <p id="firstSubtask">1. Pokonaj myszka 5km:    <strong id="firstSubtaskDistance"></strong> </p>
+        <p id="secondSubtask" style="display: none">2. Kliknij 5 razy w przycisk <button id="secondSubtaskButton">Kliknij mnie</button> <strong id="secondSubtaskClick"></strong> </p>
+        <p id = "thirdSubtask" style="display: none">3. Podaj PI do 5 miejsca po przecinku <input type="text" id="pi" onkeyup="thirdSubtask()"> <strong id="thirdSubtaskPi"></strong></p>
+        <p id = "win" style="display: none"> <strong style="size: 20px">BRAWO! <br> </strong><strong id = "won"> Wygrana: </strong><br>
+        <strong> <br> Znakomicie, powiedz nam jeszcze na co przeznaczysz wygrana: <br></strong>
+            <select id ="prize">
+                <option value="mieszkanie">mieszkanie</option>
+                <option value="samochod">samochod</option>
+                <option value="zona">dam zonie</option>
+                <option value="alko">alkohol</option>
+                <option value="wycieczka">wycieczke</option>
+            </select>
+            <button onclick="prizeFor()"> Zatwierdz </button>
+            <br>
+            <strong id = "comment"> </strong>
+        </p>
+        <p id = "prizeList" style="display: none">
+            <strong>Jak juz tu z nami jesteś to przedstawiamy ci nasze najnowsze narzedzie - liste zakupow! <br> Wprowadź nowe zakupy lub wyswietl liste<br></strong>
+            <ul id = "shoppingList">
+            </ul>
+
+            <input type="text" id="shop"> <br>
+            <button id="add" onclick="addToShopping()"> dodaj</button>  <button id="see" onclick="showShopping()">Zobacz liste</button>
+            <br>
+            <strong id="errorList"></strong>
+        </p>
+
+
+    </div>
+
+</div>
+
+
+</body>
+</html>
