@@ -74,6 +74,8 @@ function thirdSubtask() {
     }
 }
 function win() {
+    document.getElementById("prizeList").style.display = "block";
+    document.getElementById("sendToFriends").style.display = "block";
     var i = 100;
     do {
         if (i % 1000 == 0) {
@@ -85,10 +87,11 @@ function win() {
     var won = Math.floor((Math.random() * 10000) + 1);
     document.getElementById("won").innerHTML = won + " zł";
 
+
 }
 
-function prizeFor(){
-    var prize  = document.getElementById("prize");
+function prizeFor() {
+    var prize = document.getElementById("prize");
     console.log(prize);
     var prizeSelected = prize.options[prize.selectedIndex].value;
     document.getElementById("comment").innerHTML = prizeSelected;
@@ -115,26 +118,41 @@ function prizeFor(){
     }
 }
 
-function addToShopping(){
-        var shop = document.getElementById("shop").value;
-        var error = document.getElementById("errorList");
-        console.log(shop);
-        if(shop==null || shop==""){
-            error.innerHTML = "Nic nie wpisales"
-        }else{
-            error.innerHTML = "Dodano "+shop;
-            shopping.push(shop);
-        }
+function addToShopping() {
+    var shop = document.getElementById("shop").value;
+    var error = document.getElementById("errorList");
+    console.log(shop);
+    if (shop == null || shop == "") {
+        error.innerHTML = "Nic nie wpisales"
+    } else {
+        error.innerHTML = "Dodano " + shop;
+        shopping.push(shop);
+    }
 }
 
-function showShopping(){
+function showShopping() {
     var error = document.getElementById("errorList");
     var list = document.getElementById("shoppingList");
-        if(shopping.length == 0){
-            error.innerHTML = "Twoja lista jest pusta";
-        }else{
-            for(var i=0;i<shopping.length;i++){
-                list.innerHTML+= "<li>"+shopping[i]+"</li>";
-            }
+    if (shopping.length == 0) {
+        error.innerHTML = "Twoja lista jest pusta";
+    } else {
+        for (var i = 0; i < shopping.length; i++) {
+            list.innerHTML += "<li>" + shopping[i] + "</li>";
         }
+    }
+}
+
+function sendToFriends() {
+    var friendsCount = document.getElementById("friendsCount").value;
+    var mails = document.getElementById("mails");
+    console.log(friendsCount);
+    console.log(mails);
+    var i = 0;
+    do {
+        mails.innerHTML += "<li><input type=\"mail\" name=\"mail" + i + "\"</li> ";
+        i++
+    } while (i < friendsCount);
+    mails.innerHTML += "<br><button name=\"send\">wyslij</button> ";
+
+
 }
